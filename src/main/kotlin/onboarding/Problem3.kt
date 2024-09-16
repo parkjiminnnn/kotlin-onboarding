@@ -1,5 +1,10 @@
 package onboarding
 
 fun solution3(number: Int): Int {
-    TODO("프로그램 구현")
+    var clapTimes = 0
+    val numberArray = mutableListOf<String>()
+    for (i in 0 until number) {
+        numberArray.add(i, "${i + 1}")
+    }
+    return clapTimes
 }
