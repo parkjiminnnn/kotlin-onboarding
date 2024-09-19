@@ -21,3 +21,8 @@
 | forms | result |
 | --- | --- |
 | [ ["jm@email.com", "제이엠"], ["jason@email.com", "제이슨"], ["woniee@email.com", "워니"], ["mj@email.com", "엠제이"], ["nowm@email.com", "이제엠"] ] | ["jason@email.com", "jm@email.com", "mj@email.com"] |
+
+### 기능 명세
+- forms의 1번째 배열을 저장하는 nicknameList를 만든다.
+- nicknameList안의 각 nickname의 i번째 배열과 i+1번째 배열의 값을 비교한다.
+- 겹치는 nickname을 result에 저장하여 오름차순으로 정렬한다.
