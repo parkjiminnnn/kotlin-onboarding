@@ -6,31 +6,39 @@ fun solution7(
     visitors: List<String>
 ): List<String> {
     val sharedFriends = mutableListOf<List<Any>>()
-    val sharedFriendsCount = mutableListOf<List<Any>>()
+    val sharedFriendsScore = mutableListOf<List<Any>>()
     val result = mutableListOf<String>()
-    var visitorCount = 0
-    for (i in friends.indices) {
-        for (j in friends[i].indices) {
-            when (user) {
-                friends[i][0] -> {
-                    sharedFriends.add(listOf(friends[i][1], 10))
-                }
 
-                friends[i][1] -> sharedFriends.add(listOf(friends[i][0], 10))
+    for (i in friends.indices) {
+        for (j in friends.indices) {
+            if (user == friends[i][0]) {
+                when {
+                    friends[i][1] == friends[j][1] && i != j -> {
+                        sharedFriends.add(listOf(friends[j][0], 10))
+                    }
+
+                    friends[i][1] == friends[j][0] -> {
+                        sharedFriends.add(listOf(friends[j][1], 10))
+                    }
+                }
+            } else if (user == friends[i][1]) {
+                when {
+                    friends[i][0] == friends[j][0] && i != j -> {
+                        sharedFriends.add(listOf(friends[j][1], 10))
+                    }
+
+                    friends[i][0] == friends[j][1] -> {
+                        sharedFriends.add(listOf(friends[j][0], 10))
+                    }
+                }
             }
         }
     }
-    //sharedfriends = {[a,10][b,10][a,10][c,10]}
     for (k in sharedFriends.indices) {
-        sharedFriendsCount.add(listOf(sharedFriends[k][0], sharedFriends[k].count() * 10))
-        for (l in visitors.indices) {
-            visitorCount = visitors[l].count()
-            if (sharedFriends[k][0] == visitors[l]) {
-                sharedFriendsCount[k] = listOf(sharedFriends[k][0],sharedFriends[k].count() * 10 + visitorCount)
-            }
+        if (!sharedFriendsScore.toString().contains(sharedFriends[k][0].toString())) {
+            sharedFriendsScore.add(listOf(sharedFriends[k][0], sharedFriends[k].count() * 10))
         }
-        sharedFriendsCount.sortBy { it[1] as Comparable<Any> }
-        result.add(sharedFriendsCount[k][0].toString())
+        println(sharedFriendsScore.toString())
     }
     return result
 }
