@@ -7,6 +7,7 @@ fun solution7(
 ): List<String> {
     val sharedFriends = mutableListOf<List<Any>>()
     val sharedFriendsCount = mutableListOf<List<Any>>()
+    val result = mutableListOf<String>()
     var visitorCount = 0
     for (i in friends.indices) {
         for (j in friends[i].indices) {
@@ -28,8 +29,8 @@ fun solution7(
                 sharedFriendsCount[k] = listOf(sharedFriends[k][0],sharedFriends[k].count() * 10 + visitorCount)
             }
         }
+        sharedFriendsCount.sortBy { it[1] as Comparable<Any> }
+        result.add(sharedFriendsCount[k][0].toString())
     }
-    
-
-
+    return result
 }
