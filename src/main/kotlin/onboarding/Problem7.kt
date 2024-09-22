@@ -58,5 +58,9 @@ fun solution7(
             }
         }
     }
+    sharedFriendsScore.sortWith(compareByDescending<List<Any>> { it[1] as Int }.thenBy { it[0] as String })
+    for (n in sharedFriendsScore.indices) {
+        result.add(sharedFriendsScore[n][0].toString())
+    }
     return result
 }
