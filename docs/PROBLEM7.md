@@ -24,3 +24,10 @@
 | user | friends | visitors | result |
 | --- | --- | --- | --- |
 | "mrko" | [ ["donut", "andole"], ["donut", "jun"], ["donut", "mrko"], ["shakevan", "andole"], ["shakevan", "jun"], ["shakevan", "mrko"] ] | ["bedi", "bedi", "donut", "bedi", "shakevan"] | ["andole", "jun", "bedi"] |
+
+### 기능 명세
+- friends리스트에서 user의 값이 포함된 sharedFriends배열을 추출한다.
+- sharedFriends에 한명씩 포함될때마다 score변수에 10점을 부여한다.
+- visitors의 이름당 1점씩 추가한다.
+- result배열의 크기를 5개로 제한하여 score가 높은 순으로 정렬하고
+  점수가 같은 경우 이름 순으로 정렬한다.
